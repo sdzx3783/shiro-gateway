@@ -1,0 +1,8 @@
+param:
+  server-port: 8082
+  db-ip: 192.168.1.13
+  db-port: 3306
+  db-name: webgateway_demo
+  db-username: root
+  db-password:
+  ignored-static-paths:

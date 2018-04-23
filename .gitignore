@@ -1,0 +1,11 @@
+.svn/
+.classpath
+.project
+*.iml
+.externalToolBuilders/
+.settings/
+bin
+target
+logs/
+tomcat/
+.idea

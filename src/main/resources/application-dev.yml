@@ -1,0 +1,8 @@
+param:
+  server-port: 8082
+  db-ip: localhost
+  db-port: 3306
+  db-name: demo
+  db-username: root
+  db-password: jklfgh
+  ignored-static-paths:
