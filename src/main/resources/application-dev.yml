@@ -1,8 +1,8 @@
 param:
   server-port: 8082
-  db-ip: localhost
+  db-ip: 192.168.1.13
   db-port: 3306
-  db-name: demo
+  db-name: webframe
   db-username: root
-  db-password: jklfgh
+  db-password:
   ignored-static-paths:

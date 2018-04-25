@@ -29,12 +29,12 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/", "user");
-        filterChainDefinitionMap.put("/login", "authc");
+        filterChainDefinitionMap.put("/platform/login", "authc");
         filterChainDefinitionMap.put("/service/**", "authc");
         filterChainDefinitionMap.put("/**", "user");
 
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+        shiroFilterFactoryBean.setLoginUrl("/platform/login");
+        shiroFilterFactoryBean.setSuccessUrl("/platform/console/main");
 
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);

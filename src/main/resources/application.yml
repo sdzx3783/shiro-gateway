@@ -24,13 +24,21 @@ mybatis:
 
 logging:
   path: ./logs/
+  level:
+    com.netflix: TRACE
 
 zuul:
   ignored-patterns: ${param.ignored-static-paths}
   routes:
     app-login:
-      path: /login
-      url: http://localhost:8080/login
+      path: /platform/login
+      url: http://localhost:8080/
+    app-platform:
+      path: /platform/**
+      url: http://localhost:8080/platform/
+    app-platform-static:
+      path: /static/platform/**
+      url: http://localhost:8080/static/platform/
   host:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
