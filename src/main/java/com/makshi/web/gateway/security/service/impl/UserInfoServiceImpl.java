@@ -9,8 +9,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public LoginUser findByUsername(String username) {
         LoginUser loginUser = new LoginUser();
-        loginUser.setUsername("admin");
-        loginUser.setPassword("123456");
+        loginUser.setUsername(username);
+        loginUser.setPassword("1");
         return loginUser;
     }
 }
