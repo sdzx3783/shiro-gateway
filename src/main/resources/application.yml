@@ -30,9 +30,9 @@ logging:
 zuul:
   ignored-patterns: ${param.ignored-static-paths}
   routes:
-    app-login:
-      path: /platform/login
-      url: http://localhost:8080/
+#    app-login:
+#      path: /
+#      url: http://localhost:8080/platform/console/main
     app-platform:
       path: /platform/**
       url: http://localhost:8080/platform/
@@ -47,6 +47,7 @@ spring:
   thymeleaf:
     cache: false
     model: LEGACYHTML5
+    prefix=classpath: /templates/thymeleaf/
   datasource:
     gateway:
       validation-query: SELECT 1 FROM DUAL

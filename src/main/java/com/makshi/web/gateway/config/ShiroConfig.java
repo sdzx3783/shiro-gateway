@@ -8,7 +8,6 @@ import org.apache.shiro.web.filter.authc.AuthenticationFilter;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
-import org.bouncycastle.asn1.x500.style.RFC4519Style;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -29,11 +28,11 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/", "user");
-        filterChainDefinitionMap.put("/platform/login", "authc");
+        filterChainDefinitionMap.put("/login", "authc");
         filterChainDefinitionMap.put("/service/**", "authc");
         filterChainDefinitionMap.put("/**", "user");
 
-        shiroFilterFactoryBean.setLoginUrl("/platform/login");
+        shiroFilterFactoryBean.setLoginUrl("/login");
         shiroFilterFactoryBean.setSuccessUrl("/platform/console/main");
 
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
