@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/auth/css/reset.css"/>
     <link rel="stylesheet" href="/static/auth/css/login.css"/>
     <script type="text/javascript" src="/static/global/js/third/jquery-3.3.1/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/static/global/js/third/jquery.validate.js"></script>
+    <script type="text/javascript" src="/static/global/js/third/jquery-validation-1.17.0/jquery.validate.js"></script>
 </head>
 <body>
     <div class="header">
@@ -19,28 +19,28 @@
     <div class="main">
         <img src="/static/auth/images/login_bg2.png" alt=""/>
         <div class="form">
-            <h2>用户登录 </h2>
+            <h2><span th:text="#{auth.login.title}"></span></h2>
 			<form id="form-login" action="/login" method="post">
                 <div class="form-line user-line">
-                    <input type="text" class="input" id="txt_username" name="username" placeholder="请输入用户名/手机号码"/>
+                    <input type="text" class="input" id="txt_username" name="username" th:placeholder="#{auth.login.username.placeholder}"/>
                     <div class="clear"></div>
                     <div class="error-msg"></div>
                 </div>
                 <div class="form-line pswd-line">
-                    <input type="password" name="password" id="txt_password" class="input" placeholder="请输入密码"/>
+                    <input type="password" name="password" id="txt_password" class="input" th:placeholder="#{auth.login.password.placeholder}"/>
                     <div class="clear"></div>
                     <div class="error-msg"></div>
                 </div>
                <div class="line">
-                    <span><label id="save-label" class="save-label"><input id="ck_rmbUser" class="save-input" name="rememberMe" type="checkbox"/></label>记住密码</span>
-                    <a href="javascript:void(0)" class="forget" onclick="document.getElementById('form-login').reset();">重置</a>
+                   <label id="save-label" class="save-label"><input id="ck_rmbUser" class="save-input" name="rememberMe" type="checkbox"/></label><span th:text="#{auth.login.button.rememberme}"></span>
+                    <a href="javascript:void(0)" class="forget" onclick="document.getElementById('form-login').reset();"><span th:text="#{auth.login.button.reset}"></span></a>
                 </div>
                	<div class="msg-line"><span th:text="${msg}"></span></div>
-                <div class="form-line submit-line"><input type="submit" class="input" value="登录"/></div>
+                <div class="form-line submit-line"><input type="submit" class="input" th:value="#{auth.login.button.login}"/></div>
             </form>
         </div>
     </div>
-<script>
+<script th:inline="javascript">
     $(function(){
         $('.form').on('keyup', '.input', function(event){
             var $this = $(this);
@@ -82,10 +82,10 @@
             },
             messages: {
                 username: {
-                    required: "请输入用户名",
+                    required: [[#{auth.login.username.required}]]
                 },
                 password: {
-                    required: "请输入密码"
+                    required: [[#{auth.login.password.required}]]
                 }
             },
  			submitHandler:function(form){
