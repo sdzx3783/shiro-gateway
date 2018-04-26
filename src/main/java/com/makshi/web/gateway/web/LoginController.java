@@ -33,10 +33,8 @@ public class LoginController {
                 msg = "其他异常："+exception;
             }
             map.put("msg", msg);
-//        }else if(SecurityUtils.getSubject().isAuthenticated()){
-//            response.sendRedirect("/platform/console/main");
         }
 
-        return "thymeleaf/login";
+        return "login";
     }
 }

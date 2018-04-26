@@ -13,6 +13,5 @@ public class IndexController {
     @RequestMapping({"/"})
     public void index(HttpServletResponse response) throws Exception{
         response.sendRedirect("/platform/console/main");
-//        return "index";
     }
 }
