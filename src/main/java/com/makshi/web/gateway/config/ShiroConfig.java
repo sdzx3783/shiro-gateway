@@ -1,5 +1,6 @@
 package com.makshi.web.gateway.config;
 
+import com.makshi.web.gateway.security.auth.BaseFormAuthenticationFilter;
 import com.makshi.web.gateway.security.auth.RestfulServiceAuthenticationFilter;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
@@ -40,6 +41,7 @@ public class ShiroConfig {
 
         Map<String, Filter> filters = new HashMap<String, Filter>();
         filters.put("sauthc",authenticationFilter());
+        filters.put("authc", new BaseFormAuthenticationFilter());
         shiroFilterFactoryBean.setFilters(filters);
 
         return shiroFilterFactoryBean;

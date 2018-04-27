@@ -6,3 +6,4 @@ param:
   db-username: root
   db-password:
   ignored-static-paths:
+  platform-server: localhost:8080
