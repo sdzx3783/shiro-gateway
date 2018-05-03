@@ -6,7 +6,6 @@ param:
   db-username: root
   db-password: password
   ignored-static-paths:
-  platform-server: 192.168.1.46:8080
 
 server:
   port: ${param.server-port}
@@ -30,19 +29,24 @@ logging:
 
 zuul:
   ignored-patterns: ${param.ignored-static-paths}
+#  add-host-header: true
+#  retryable: false
+#  sensitiveHeaders:
   routes:
 #    app-login:
 #      path: /
 #      url: http://localhost:8080/platform/console/main
-    app-platform:
-      path: /platform/**
-      url: http://${param.platform-server}/platform/
+#    app-platform:
+#      path: /platform/**
+#      url: http://localhost:8080/platform/
+#      serviceId: platform
+#      stripPrefix: false
     app-platform-static:
       path: /static/platform/**
-      url: http://${param.platform-server}/static/platform/
+      url: http://localhost:8080/static/platform/
   host:
-    socket-timeout-millis: 60000
-    connect-timeout-millis: 60000
+    socket-timeout-millis: 3000
+    connect-timeout-millis: 3000
 
 spring:
   thymeleaf:

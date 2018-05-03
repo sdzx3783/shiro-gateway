@@ -45,6 +45,12 @@
       <artifactId>spring-cloud-starter-zuul</artifactId>
     </dependency>
 
+    <!-- SPRING CLOUD -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-eureka</artifactId>
+    </dependency>
+
     <!--MYBATIS -->
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>

@@ -6,4 +6,22 @@ param:
   db-username: root
   db-password:
   ignored-static-paths:
-  platform-server: 192.168.1.46:8080
+
+zuul:
+    routes:
+      app-platform:
+        path: /platform/**
+  #      url: http://${param.platform-server}/platform/
+        serviceId: platform
+        stripPrefix: false
+      app-platform-static:
+        path: /static/platform/**
+        url: http://${param.platform-server}/static/platform/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.46:1111/eureka/
+spring:
+  application:
+    name: gateway
